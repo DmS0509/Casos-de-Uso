@@ -1,0 +1,10 @@
+{
+  "plantuml.render": "PlantUMLServer",
+  "plantuml.server": "https://www.plantuml.com/plantuml",
+  "plantuml.diagramsRoot": "${workspaceFolder}",
+  "plantuml.commandArgs": [],
+  "plantuml.exportOutDir": "out",
+  "plantuml.exportFormat": "png",
+  "plantuml.fileExtensions": [".puml", ".plantuml", ".uml"],
+  "plantuml.trace.server": "verbose"
+}

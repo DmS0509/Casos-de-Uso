@@ -1,0 +1,16 @@
+@startuml Auditoria
+'title Auditoria
+
+'Definicion de actores
+actor Propietaria
+
+'Definicion del sistema
+rectangle "Sistema de Auditoria Tienda Nueva"{
+    usecase "Iniciar sesion" as UC_IniciarSesion
+
+
+
+}
+
+
+@enduml

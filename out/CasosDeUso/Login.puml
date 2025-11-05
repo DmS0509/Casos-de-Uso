@@ -1,0 +1,26 @@
+@startuml LoginDelSistema
+'title Login del sistema
+
+'Definicion de actores
+actor Usuario
+
+'Definicion del sistema
+rectangle "Sistema de Login Tienda Nueva"{
+
+    usecase "Ingresar usuario" as UC_IngresarUsuario
+    usecase "Ingresar contrasena" as UC_IngresarContrasena
+    usecase "Recuperar contrasena" as UC_RecuperarContrasena
+    usecase "Validar credenciales" as UC_ValidarCredenciales
+    usecase "Validar rol de usuario" as UC_ValidarRol
+    usecase "Ingresar al sistema" as UC_IngresarAlSistema
+
+}
+
+Usuario -- UC_IngresarUsuario
+Usuario -- UC_IngresarContrasena
+Usuario -- UC_RecuperarContrasena
+usuario -- UC_IngresarAlSistema
+
+UC_IngresarAlSistema ..> UC_ValidarCredenciales : <<include>>
+UC_ValidarCredenciales ..> UC_ValidarRol : <<include>>
+@enduml

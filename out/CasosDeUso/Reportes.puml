@@ -1,0 +1,21 @@
+@startuml Reportes
+
+'title Reportes
+
+'Definicion de actores
+actor Propietaria
+
+'Definicion del sistema
+rectangle "Sistema de Reportes Tienda Nueva"{
+    usecase "Iniciar sesion" as UC_IniciarSesion
+    usecase "Gestionar Productos top ventas" as UC_GestionarTopVentas
+    usecase "Generar graficos de ventas" as UC_GenerarGraficos
+    usecase "Generar reporte de vencimientos" as UC_GenerarVencimientos
+
+}
+
+Propietaria -- UC_IniciarSesion
+Propietaria -- UC_GestionarTopVentas
+Propietaria -- UC_GenerarGraficos
+Propietaria -- UC_GenerarVencimientos
+@enduml

@@ -1,0 +1,49 @@
+@startuml Arqueo Diario
+
+'title Arqueo Diario
+
+'Definicion de actores
+actor Propietaria
+actor Empleado
+
+'Definicion del sistema
+rectangle "Sistema de Arqueo Tienda Nueva"{
+
+    usecase "Iniciar sesion" as UC_IniciarSesion
+    usecase "Registrar monto de apertura" as UC_RegistrarApertura
+    usecase "Gestionar movimientos del dia" as UC_GestionarMovimientos
+    usecase "Registrar dinero" as UC_RegistrarDinero
+    usecase "registra dinero en efectivo" as UC_RegistrarEfectivo
+    usecase "Registrar pagos con transferencia" as UC_RegistrarTransferencia
+    usecase "Calcular diferencias" as UC_CalcularDiferencias
+    usecase "Exportar reporte de arqueo" as UC_ExportarReporte
+    usecase "Pagar Servicios" as UC_PagarServicios
+    usecase "Agregar pago" as UC_AgregarPago
+    usecase "Eliminar pago" as UC_EliminarPago
+    usecase "Editar pago" as UC_EditarPago
+}
+
+Propietaria -- UC_IniciarSesion
+Propietaria -- UC_RegistrarApertura
+Propietaria -- UC_GestionarMovimientos
+Propietaria -- UC_RegistrarDinero
+Propietaria -- UC_ExportarReporte
+Propietaria -- UC_PagarServicios
+
+UC_RegistrarDinero ..> UC_RegistrarEfectivo : <<include>>
+UC_RegistrarDinero ..> UC_RegistrarTransferencia : <<include>>
+UC_GestionarMovimientos ..> UC_CalcularDiferencias : <<include>>
+
+UC_PagarServicios ..> UC_AgregarPago : <<include>>
+UC_PagarServicios ..> UC_EliminarPago : <<include>>
+UC_PagarServicios ..> UC_EditarPago : <<include>>
+
+Empleado -- UC_IniciarSesion
+'Empleado -- UC_RegistrarApertura
+Empleado -- UC_GestionarMovimientos
+'Empleado -- UC_RegistrarDinero
+'Empleado -- UC_ExportarReporte
+
+
+
+@enduml

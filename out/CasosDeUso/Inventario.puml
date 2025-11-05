@@ -1,0 +1,39 @@
+@startuml Inventario
+'title Inventario
+
+'Definicion de actores
+actor Propietaria
+actor Empleado
+
+
+'Definicion del sistema
+rectangle "inventario Tienda Nueva"{
+
+    'Casos de uso incluidos
+    usecase "Iniciar sesion" as UC_IniciarSesion
+    usecase "Gestionar inventario" as UC_GestionarInv
+    usecase "Agregar producto" as UC_AgregarProducto
+    usecase "Eliminar producto" as UC_EliminarProducto
+    usecase "Actualizar producto" as UC_ActualizarProducto
+    usecase "Revisar inventario" as UC_RevisarInventario
+
+    usecase "Gestionar alertas" as UC_GestionarAlertas
+    usecase "Marcar alerta como resuelta" as UC_MarcarAlerta
+    usecase "Eliminar alerta" as UC_EliminarAlerta
+}
+
+Propietaria -- UC_IniciarSesion
+Propietaria -- UC_GestionarInv
+Propietaria -- UC_GestionarAlertas
+
+UC_GestionarInv ..> UC_AgregarProducto : <<include>>
+UC_GestionarInv ..> UC_EliminarProducto : <<include>>
+UC_GestionarInv ..> UC_ActualizarProducto : <<include>>
+
+UC_GestionarAlertas ..> UC_MarcarAlerta : <<include>>
+UC_GestionarAlertas ..> UC_EliminarAlerta : <<include>>
+
+Empleado -- UC_IniciarSesion
+Empleado -- UC_RevisarInventario
+
+@enduml

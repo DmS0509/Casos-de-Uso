@@ -1,0 +1,44 @@
+@startuml CompraAProveedor
+'title Compras a Proveedores
+
+'Definicion de actores
+actor Propietaria
+
+'Definicion del sistema
+rectangle "Reabastecimiento Tienda Nueva"{
+
+    'Casos de uso incluidos
+    usecase "Iniciar sesion" as UC_IniciarSesion
+    usecase "Consultar directorio de proveedores" as UC_ConsultarDirectorio
+    usecase "Contactar proveedor" as UC_ContactarProveedor
+    usecase "Crear numero de factura" as UC_CrearFactura
+    usecase "Registrar fecha de compra" as UC_RegistrarFecha
+    usecase "Revisar historial de compras" as UC_RevisarHistorial
+    usecase "Realizar pedido de compra" as UC_RealizarPedido
+    usecase "Seleccionar productos" as UC_SeleccionarProductos
+    usecase "Seleccionar cantidades" as UC_SeleccionarCantidades
+    usecase "Finalizar pedido" as UC_FinalizarPedido
+    usecase "Confirmar recepcion de productos" as UC_ConfirmarRecepcion
+    usecase "Devolver productos" as UC_DevolverProductos
+    usecase "Adjuntar soporte de compra" as UC_AdjuntarSoporte
+
+}
+
+Propietaria -- UC_IniciarSesion
+Propietaria -- UC_ConsultarDirectorio
+Propietaria -- UC_ContactarProveedor
+Propietaria -- UC_RevisarHistorial
+Propietaria -- UC_RealizarPedido
+Propietaria -- UC_FinalizarPedido
+
+UC_ContactarProveedor ..> UC_CrearFactura : <<include>>
+UC_ContactarProveedor ..> UC_RegistrarFecha : <<include>>
+
+UC_RealizarPedido ..> UC_SeleccionarProductos : <<include>>
+UC_RealizarPedido ..> UC_SeleccionarCantidades : <<include>>
+
+UC_FinalizarPedido ..> UC_ConfirmarRecepcion : <<include>>
+UC_FinalizarPedido ..> UC_DevolverProductos : <<extend>>
+UC_FinalizarPedido ..> UC_AdjuntarSoporte : <<include>>
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml usuarios
+'title Usuarios
+
+'Definicion de actores
+actor Propietaria
+
+'Definicion del sistema
+rectangle "Sistema de gestion Tienda Nueva"{
+    usecase "iniciar Sesion" as UC_IniciarSesion
+    usecase "Monitorear actividad de usuarios" as UC_MonitorearActividad
+    usecase "Gestionar usuarios" as UC_GestionarUsuarios
+    usecase "Agregar usuario" as UC_AgregarUsuario
+    usecase "Eliminar usuario" as UC_EliminarUsuario
+    usecase "Restablecer contrasena" as UC_RestablecerContrasena
+    usecase "Bloquear acceso de usuario" as UC_BloquearAcceso
+
+}
+
+Propietaria -- UC_IniciarSesion
+Propietaria -- UC_MonitorearActividad
+Propietaria -- UC_GestionarUsuarios
+
+UC_GestionarUsuarios ..> UC_AgregarUsuario : <<include>>
+UC_GestionarUsuarios ..> UC_EliminarUsuario : <<include>>
+UC_GestionarUsuarios ..> UC_RestablecerContrasena : <<include>>
+UC_GestionarUsuarios ..> UC_BloquearAcceso : <<include>>
+@enduml

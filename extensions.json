@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "jebbs.plantuml",                 // Render PlantUML
+    "tintinweb.graphviz-interactive-preview", // (opcional) DOT preview
+    "yzhang.markdown-all-in-one",     // (opcional) MD mejorado
+    "bierner.markdown-mermaid"        // (opcional) Mermaid en Markdown
+  ]
+}

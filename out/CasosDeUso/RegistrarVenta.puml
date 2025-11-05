@@ -1,0 +1,40 @@
+@startuml RegistroDeVenta
+'title Registrar Venta
+
+'Definicion de actores
+actor Propietaria
+actor Cliente
+
+'Definicion del sistema
+rectangle "Sistema de gestion Tienda Nueva"{
+
+'Casos de uso incluidos
+usecase "Agregar producto" as UC_Agregar
+usecase "Seleccionar cantidad" as UC_SeleccionarCn
+usecase "Calcular Subtotal" as UC_CalcularSub
+usecase "Calcular Total" as UC_CalcularTotal
+usecase "iniciar Sesion" as UC_IniciarSesion
+usecase "Realizar pago" as UC_RealizarPago
+usecase "Registrar venta" as UC_RegistrarVenta
+usecase "Seleccionar metodo de pago" as UC_MetodoPago 
+usecase "Imprimir comprobante de pago" as UC_ImprimirComprobante
+usecase "Entregar copia comprobante de pago" as UC_EntregarComprobante
+usecase "Actualizar inventario" as UC_ActualizarInv
+'usecase ""
+}
+
+Cliente -- UC_Agregar
+UC_Agregar ..> UC_SeleccionarCn : <<include>>
+Cliente -- UC_RealizarPago
+
+Propietaria -- UC_IniciarSesion
+Propietaria -- UC_CalcularTotal
+UC_CalcularTotal ..> UC_CalcularSub : <<include>>
+Propietaria -- UC_RegistrarVenta
+UC_RegistrarVenta ..> UC_MetodoPago : <<include>>
+Propietaria -- UC_ImprimirComprobante
+UC_ImprimirComprobante ..> UC_EntregarComprobante : <<extend>>
+Propietaria -- UC_ActualizarInv
+
+
+@enduml

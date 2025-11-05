@@ -1,0 +1,35 @@
+@startuml Configuracion
+
+'title Configuracion
+
+'Definicion de actores
+actor Propietaria
+
+'Definicion del sistema
+rectangle "Sistema de configracion Tienda Nueva"{
+
+    usecase "Iniciar sesion" as UC_IniciarSesion    
+    usecase "Configurar variables" as UC_ConfigurarVariables
+    usecase "Modificar impuestos" as UC_ModificarImpuestos
+    usecase "Modificar stock minimo" as UC_ModificarStockMinimo
+    usecase "Modificar dias de alerta" as UC_ModificarDiasAlerta
+    usecase "Gestionar catalagos" as UC_GestionarCatalogos
+    usecase "Gestionar Respaldos" as UC_GestionarRespaldos
+    usecase "Descargar respaldo" as UC_DescargarRespaldo
+    usecase "Restaurar respaldo" as UC_RestaurarRespaldo
+
+}
+
+Propietaria -- UC_IniciarSesion
+Propietaria -- UC_ConfigurarVariables
+Propietaria -- UC_GestionarCatalogos
+Propietaria -- UC_GestionarRespaldos
+
+UC_ConfigurarVariables ..> UC_ModificarImpuestos : <<include>>
+UC_ConfigurarVariables ..> UC_ModificarStockMinimo : <<include>>
+UC_ConfigurarVariables ..> UC_ModificarDiasAlerta : <<include>>
+
+UC_GestionarRespaldos ..> UC_DescargarRespaldo : <<include>>
+UC_GestionarRespaldos ..> UC_RestaurarRespaldo : <<include>>
+
+@enduml
