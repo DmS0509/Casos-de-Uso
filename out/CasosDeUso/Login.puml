@@ -7,20 +7,37 @@ actor Usuario
 'Definicion del sistema
 rectangle "Sistema de Login Tienda Nueva"{
 
+    usecase "Iniciar sesion" as UC_IniciarSesion
     usecase "Ingresar usuario" as UC_IngresarUsuario
     usecase "Ingresar contrasena" as UC_IngresarContrasena
     usecase "Recuperar contrasena" as UC_RecuperarContrasena
     usecase "Validar credenciales" as UC_ValidarCredenciales
-    usecase "Validar rol de usuario" as UC_ValidarRol
     usecase "Ingresar al sistema" as UC_IngresarAlSistema
+    usecase "Registrarse en el sistema" as UC_Registrarse
+
+    usecase "Ingresar nombres" as UC_IngresarNombres
+    usecase "Ingresar apellidos" as UC_IngresarApellidos
+    usecase "Ingresar correo electronico" as UC_IngresarCorreo
+    usecase "Crear contrasena" as UC_IngresarNuevaContras
 
 }
 
-Usuario -- UC_IngresarUsuario
-Usuario -- UC_IngresarContrasena
+Usuario -- UC_IniciarSesion
 Usuario -- UC_RecuperarContrasena
-usuario -- UC_IngresarAlSistema
+Usuario -- UC_IngresarAlSistema
+Usuario -- UC_Registrarse
+
+UC_IniciarSesion ..> UC_IngresarUsuario : <<include>>
+UC_IniciarSesion ..> UC_IngresarContrasena : <<include>>
 
 UC_IngresarAlSistema ..> UC_ValidarCredenciales : <<include>>
-UC_ValidarCredenciales ..> UC_ValidarRol : <<include>>
+
+UC_Registrarse ..> UC_IngresarNombres : <<include>>
+UC_Registrarse ..> UC_IngresarApellidos : <<include>>
+UC_Registrarse ..> UC_IngresarCorreo : <<include>>
+UC_Registrarse ..> UC_IngresarNuevaContras : <<include>>
+
 @enduml
+
+'iniciar sesion -> ingresar usuario y contraseña
+'registro -> nombres, apellidos, contraseña, correo

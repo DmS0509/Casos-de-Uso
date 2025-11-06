@@ -10,9 +10,9 @@ rectangle "Sistema de gestion Tienda Nueva"{
     usecase "Monitorear actividad de usuarios" as UC_MonitorearActividad
     usecase "Gestionar usuarios" as UC_GestionarUsuarios
     usecase "Agregar usuario" as UC_AgregarUsuario
-    usecase "Eliminar usuario" as UC_EliminarUsuario
     usecase "Restablecer contrasena" as UC_RestablecerContrasena
     usecase "Bloquear acceso de usuario" as UC_BloquearAcceso
+    usecase "Modificar usuario" as UC_ModificarUsuario
 
 }
 
@@ -21,7 +21,8 @@ Propietaria -- UC_MonitorearActividad
 Propietaria -- UC_GestionarUsuarios
 
 UC_GestionarUsuarios ..> UC_AgregarUsuario : <<include>>
-UC_GestionarUsuarios ..> UC_EliminarUsuario : <<include>>
 UC_GestionarUsuarios ..> UC_RestablecerContrasena : <<include>>
 UC_GestionarUsuarios ..> UC_BloquearAcceso : <<include>>
+UC_GestionarUsuarios ..> UC_ModificarUsuario : <<include>>
+
 @enduml

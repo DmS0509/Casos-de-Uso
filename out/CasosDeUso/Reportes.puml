@@ -8,14 +8,16 @@ actor Propietaria
 'Definicion del sistema
 rectangle "Sistema de Reportes Tienda Nueva"{
     usecase "Iniciar sesion" as UC_IniciarSesion
-    usecase "Gestionar Productos top ventas" as UC_GestionarTopVentas
-    usecase "Generar graficos de ventas" as UC_GenerarGraficos
-    usecase "Generar reporte de vencimientos" as UC_GenerarVencimientos
+    usecase "Generar reporte de ventas" as UC_GenerarReporteVentas
+    usecase "Calcular gastos e ingresos" as UC_CalcularGastosIngresos
+    usecase "Generar reporte financiero" as UC_GenerarReporteFinanciero
+    'usecase ""
 
 }
 
 Propietaria -- UC_IniciarSesion
-Propietaria -- UC_GestionarTopVentas
-Propietaria -- UC_GenerarGraficos
-Propietaria -- UC_GenerarVencimientos
+Propietaria -- UC_GenerarReporteVentas
+Propietaria -- UC_GenerarReporteFinanciero
+
+UC_GenerarReporteFinanciero ..> UC_CalcularGastosIngresos : <<include>>
 @enduml

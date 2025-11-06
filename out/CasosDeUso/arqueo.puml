@@ -11,7 +11,6 @@ rectangle "Sistema de Arqueo Tienda Nueva"{
 
     usecase "Iniciar sesion" as UC_IniciarSesion
     usecase "Registrar monto de apertura" as UC_RegistrarApertura
-    usecase "Gestionar movimientos del dia" as UC_GestionarMovimientos
     usecase "Registrar dinero" as UC_RegistrarDinero
     usecase "registra dinero en efectivo" as UC_RegistrarEfectivo
     usecase "Registrar pagos con transferencia" as UC_RegistrarTransferencia
@@ -21,26 +20,27 @@ rectangle "Sistema de Arqueo Tienda Nueva"{
     usecase "Agregar pago" as UC_AgregarPago
     usecase "Eliminar pago" as UC_EliminarPago
     usecase "Editar pago" as UC_EditarPago
+    usecase "Visualizar reporte de arqueo" as UC_VisualizarReporte
 }
 
 Propietaria -- UC_IniciarSesion
 Propietaria -- UC_RegistrarApertura
-Propietaria -- UC_GestionarMovimientos
 Propietaria -- UC_RegistrarDinero
 Propietaria -- UC_ExportarReporte
 Propietaria -- UC_PagarServicios
+Propietaria -- UC_VisualizarReporte
 
 UC_RegistrarDinero ..> UC_RegistrarEfectivo : <<include>>
 UC_RegistrarDinero ..> UC_RegistrarTransferencia : <<include>>
-UC_GestionarMovimientos ..> UC_CalcularDiferencias : <<include>>
+UC_RegistrarDinero ..> UC_CalcularDiferencias : <<include>>
 
 UC_PagarServicios ..> UC_AgregarPago : <<include>>
 UC_PagarServicios ..> UC_EliminarPago : <<include>>
 UC_PagarServicios ..> UC_EditarPago : <<include>>
 
 Empleado -- UC_IniciarSesion
+Empleado -- UC_VisualizarReporte
 'Empleado -- UC_RegistrarApertura
-Empleado -- UC_GestionarMovimientos
 'Empleado -- UC_RegistrarDinero
 'Empleado -- UC_ExportarReporte
 
